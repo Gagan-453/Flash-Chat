@@ -1,11 +1,14 @@
 from tkinter import *
 import webbrowser as wb
-root = Tk()
+
 
 class Gagan:
-    def __init__(self, root):
-        self.f = Toplevel(root, width=600, height=400, bg='#BAFCB0')
+    def __init__(self):
+        self.f = Toplevel(width=600, height=400, bg='#BAFCB0')
         self.f.propagate(0)
+        self.f.title("About")
+        self.f.resizable(False, False)
+        self.f.iconbitmap('required/icon.ico')
 
         self.heading = Label(self.f, text='About Developer', bg='#BAFCB0', fg='#210440', font=('Berlin Sans FB Demi', 15, 'underline'))
         self.heading.pack()
@@ -36,6 +39,7 @@ class Gagan:
         self.exit_about = Button(self.f, text='Close', bg='#11EFF7', width=10, height=2,
                                font=('Arial', 10, 'bold'), command=self.exit_window)
         self.exit_about.place(x=450, y=350)
+        self.f.mainloop()
 
     def go_to_gmail(self):
         self.gmail = wb.open("https://mail.google.com/mail/u/0/?tab=rm#inbox?compose=CllgCJfttqKNrXxPNDMzlsbzHxsNXDcZlwtmZQXSMpjnJtttLvvZxlrlZjqDbtLZtmMqdgDsHBB")
@@ -46,7 +50,5 @@ class Gagan:
     def exit_window(self):
         self.f.destroy()
 
-ab = Gagan(root)
-root.mainloop()
-
-        
+if __name__ == '__main__':
+    ab = Gagan()
